@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-card container-card-profile">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center">User Profile</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <p class="profile-info"><strong>Username:</strong> {{ user.username }}</p>
+                        <p class="profile-info"><strong>First Name:</strong> {{ user.first_name }}</p>
+                        <p class="profile-info"><strong>Last Name:</strong> {{ user.last_name }}</p>
+                        <p class="profile-info"><strong>Email:</strong> {{ user.email }}</p>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

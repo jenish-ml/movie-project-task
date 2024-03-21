@@ -1,0 +1,30 @@
+.header-one{
+    background-color: black;
+}
+.header-one .nav-link {
+    color: white;
+}
+.header-one .navbar-brand {
+    color: white;
+}
+.card-index {
+    width: 280px;
+}
+.card-body-index {
+    display: flex;
+    justify-content: space-between;
+}
+.card-title-index {
+    margin-bottom: 0;
+}
+.container-card-index {
+    margin-top: 20px;
+}
+.container-card-profile {
+    margin-top: 200px;
+    margin-left: 200px;
+}
+.card-img-top-index{
+    height: 300px;
+    background-size: cover;
+}

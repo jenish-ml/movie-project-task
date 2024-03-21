@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+<head>
+    {% if alert %}
+        <script>
+            alert('Your Registration successful. Welcome {{ user.username }}')
+        </script>
+    {% endif %}
+</head> 
+
+<div class="container container-card-index">
+    
+    {% if movies %}
+    <h3>Movies:</h3>
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-md-3 mb-4">
+            <div class="card card-index">
+                <img src="{{ movie.poster.url }}" class="card-img-top card-img-top-index" alt="{{ movie.title }} Poster">
+                <div class="card-body card-body-index">
+                    <h5 class="card-title card-title-index">{{ movie.title }}</h5>
+                    <a href="{% url 'movie_detail' movie.id %}" class="btn btn-primary">Detail</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <strong>There are No movies </strong>
+    {% endif %}
+    
+</div>
+{% endblock content %}
