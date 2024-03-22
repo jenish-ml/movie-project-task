@@ -32,18 +32,24 @@
                     {% endif %} 
                     
                     </ul>
+                    {% if categories %}
                     <form class="d-flex" action="{% url 'home' %}" id="search-form" method="GET">
                         <div class="d-flex gap-3">
+                            
+                            
                             <select class="form-select" name="category" id="category-dropdown">
                                 <option value="">All Categories</option>
                                 {% for category in categories %}
                                 <option value="{{ category.title }}" {% if category.title == request.GET.category %}selected{% endif %}>{{ category.title }}</option>
                                 {% endfor %}
                             </select>
+                            
+                                
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </div>
                     </form>
+                    {% endif %}
                 </div>
                 </div>
             </nav>

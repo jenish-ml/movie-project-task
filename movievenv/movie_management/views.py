@@ -15,6 +15,7 @@ def home(request):
         movies = movies.filter(category__title=selected_category)
     if query:
         movies = movies.filter(Q(title__icontains=query) | Q(category__title__icontains=query))
+    movies = movies.distinct()
     return render(request, 'index.html', {'user': user, 'movies': movies, 'categories': categories})
 
 def add_movie(request):
@@ -25,6 +26,7 @@ def add_movie(request):
             movie = form.save(commit=False)
             movie.added_by = request.user
             movie.save()
+            form.save_m2m()
             return redirect('home')
     else:
         form = MovieForm()
